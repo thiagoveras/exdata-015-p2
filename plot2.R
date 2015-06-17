@@ -24,7 +24,7 @@ barplot(height=baltimore.emissions.by.year$Emissions, names.arg=baltimore.emissi
 
 ## Saving it to a PNG file
 message("Saving the PNG file (plot2.png)")
-dev.copy(png, file="plot2.png")
+dev.copy(png, file="plot2.png", height=480, width=640)
 dev.off()
 
 }
