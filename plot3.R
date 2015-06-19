@@ -23,6 +23,7 @@ baltimore.emissions.aggr <- aggregate(Emissions ~ year + type,
                                   FUN=sum)
 
 # Ploting the graph
+# Ploting the graph and saving the PNG file (plot3.png)
 message("Ploting the graph")
 ggplot(baltimore.emissions.aggr, aes(x=factor(year), y=Emissions, fill=type)) +
     geom_bar(stat="identity") +
@@ -32,9 +33,7 @@ ggplot(baltimore.emissions.aggr, aes(x=factor(year), y=Emissions, fill=type)) +
     ggtitle(expression("PM"[2.5]*paste(" emissions in Baltimore ",
                                        "City by various source types", sep="")))
 
-## Saving it to a PNG file
 message("Saving the PNG file (plot3.png)")
-dev.copy(png, file="plot3.png", height=480, width=640)
-dev.off()
+ggsave(filename="plot3.png", width=9, height=5)
 
 }
